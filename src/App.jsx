@@ -576,7 +576,7 @@ export default function App() {
                     Status
                   </div>
                   <div className="mt-2 text-lg font-semibold text-white">
-                    Awaiting Contract
+                    Launched
                   </div>
                 </div>
               </div>
@@ -685,8 +685,8 @@ export default function App() {
                   Launch Note
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-gray-300">
-                  Update the placeholder links and contract address before going
-                  live. Once those are in, this section becomes your action hub.
+                  Launch began fairly on pumpfun, giving everyone equal
+                  opportunity to join the park.
                 </p>
               </div>
             </div>
@@ -785,7 +785,7 @@ export default function App() {
             </div>
 
             <div className="text-sm text-gray-500">
-              Built for the signal. Replace placeholder links before launch.
+              © 2026 Bozkurt. All Rights Reserved.
             </div>
           </div>
         </footer>
