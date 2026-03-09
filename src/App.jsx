@@ -576,7 +576,7 @@ export default function App() {
                     Status
                   </div>
                   <div className="mt-2 text-lg font-semibold text-white">
-                    Launched
+                    Launched!
                   </div>
                 </div>
               </div>
