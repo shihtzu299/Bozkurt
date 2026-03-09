@@ -213,7 +213,7 @@ export default function App() {
               href={pumpFunUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-xl border border-white/15 bg-white px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
+              className="whitespace-nowrap rounded-xl border border-white/15 bg-white px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
             >
               Buy on Pump.fun
             </a>
@@ -587,13 +587,13 @@ export default function App() {
                 </div>
 
                 <div className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/30 p-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="overflow-hidden text-ellipsis whitespace-nowrap font-mono text-sm text-gray-200">
+                  <div className="min-w-0 break-all font-mono text-sm text-gray-200 sm:max-w-[70%] sm:break-all">
                     {contractAddress}
                   </div>
 
                   <button
                     onClick={copyContract}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white px-4 py-3 text-sm font-semibold text-black transition hover:scale-105"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white px-4 py-3 text-sm font-semibold text-black transition hover:scale-105 sm:w-auto sm:flex-shrink-0"
                   >
                     {copied ? <Check size={16} /> : <Copy size={16} />}
                     {copied ? "Copied" : "Copy CA"}
@@ -644,8 +644,7 @@ export default function App() {
               </h3>
 
               <p className="text-gray-300 leading-relaxed">
-                Use these primary launch actions. Replace the placeholder links
-                with your real X, Telegram, and pump.fun page when live.
+                Take the first step in being a member of the park today.
               </p>
 
               <div className="mt-8 flex flex-col gap-4">
