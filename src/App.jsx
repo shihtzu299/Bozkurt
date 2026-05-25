@@ -17,6 +17,8 @@ import logo from "./assets/logo.png";
 import editorialImageOne from "./assets/editorial-placeholder-1.webp";
 import editorialImageTwo from "./assets/editorial-placeholder-2.webp";
 import editorialImageThree from "./assets/editorial-placeholder-3.webp";
+import editorialImageFour from "./assets/editorial-placeholder-4.webp";
+import editorialImageFive from "./assets/editorial-placeholder-5.webp";
 
 export default function App() {
   const [mouse, setMouse] = useState({ x: -500, y: -500 });
@@ -57,12 +59,22 @@ export default function App() {
       alt: "Portrait placeholder for Hitchhiker artwork",
       label: "Signal Three",
     },
+    {
+      src: editorialImageFour,
+      alt: "Portrait placeholder for Pepe hitchhiker artwork",
+      label: "Signal Four",
+    },
+    {
+      src: editorialImageFive,
+      alt: "Portrait placeholder for Elon Towel artwork",
+      label: "Signal Five",
+    },
   ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, 2200);
 
     return () => clearTimeout(timer);
   }, []);
@@ -539,7 +551,7 @@ export default function App() {
                 <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_65%_30%,rgba(255,215,120,0.16),transparent_40%),radial-gradient(circle_at_25%_80%,rgba(123,167,255,0.14),transparent_42%)] blur-xl" />
                 <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/25 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
                   <div className="mb-3 flex items-center justify-between px-2 text-[10px] uppercase tracking-[0.28em] text-gray-500">
-                    <span>Portrait Archive</span>
+                    <span>Gallery</span>
                     <span>Swipe</span>
                   </div>
 
