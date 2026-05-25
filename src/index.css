@@ -64,6 +64,29 @@ body::selection {
   filter: blur(20px);
 }
 
+.portrait-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 215, 120, 0.45) rgba(255, 255, 255, 0.08);
+}
+
+.portrait-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.portrait-scroll::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.portrait-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 215, 120, 0.45),
+    rgba(123, 167, 255, 0.45)
+  );
+}
+
 @media (max-width: 767px) {
   .section-divider {
     height: 84px;

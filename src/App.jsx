@@ -7,28 +7,57 @@ import {
   Rocket,
   Twitter,
   ChevronDown,
+  Menu,
+  X,
   BarChart3,
   Activity,
   LineChart,
 } from "lucide-react";
-import logo from "./assets/bozkurt-logo.png";
+import logo from "./assets/logo.png";
+import editorialImageOne from "./assets/editorial-placeholder-1.webp";
+import editorialImageTwo from "./assets/editorial-placeholder-2.webp";
+import editorialImageThree from "./assets/editorial-placeholder-3.webp";
 
 export default function App() {
   const [mouse, setMouse] = useState({ x: -500, y: -500 });
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const contractAddress = "3kvRhK58AGZYQJeV4KFmwr64C1mo2kbM8TosSApYpump";
+  const contractAddress = "8MAfXZGRob2ohahrYjnoJJwRoZ8CZuVPqEaLzxVepump";
   const pumpFunUrl =
-    "https://pump.fun/coin/3kvRhK58AGZYQJeV4KFmwr64C1mo2kbM8TosSApYpump";
-  const xUrl = "https://x.com/i/communities/2018142836034572513";
-  const telegramUrl = "https://t.me/BOZKURTSOLANA";
+    "https://pump.fun/coin/8MAfXZGRob2ohahrYjnoJJwRoZ8CZuVPqEaLzxVepump";
+  const xUrl = "https://x.com/towel_forall";
+  const telegramUrl = "https://t.me/towel_forall";
   const dexscreenerUrl =
-    "https://dexscreener.com/solana/d75iqmse3a5f1j7gpi4j6kgykqvjsst9xzevraavqjcz";
+    "https://dexscreener.com/solana/4qewthocgt2grhivhm2dlwrvybau19sqmffyckilcf9e";
   const birdeyeUrl =
-    "https://birdeye.so/solana/token/3kvRhK58AGZYQJeV4KFmwr64C1mo2kbM8TosSApYpump";
+    "https://birdeye.so/solana/token/8MAfXZGRob2ohahrYjnoJJwRoZ8CZuVPqEaLzxVepump";
   const chartUrl =
-    "https://gmgn.ai/sol/token/3kvRhK58AGZYQJeV4KFmwr64C1mo2kbM8TosSApYpump";
+    "https://gmgn.ai/sol/token/8MAfXZGRob2ohahrYjnoJJwRoZ8CZuVPqEaLzxVepump";
+  const navLinks = [
+    { href: "#lore", label: "Narrative" },
+    { href: "#roadmap", label: "Roadmap" },
+    { href: "#token", label: "Token" },
+    { href: "#socials", label: "Socials" },
+  ];
+  const editorialImages = [
+    {
+      src: editorialImageOne,
+      alt: "Portrait placeholder for Don't Panic towel artwork",
+      label: "Signal One",
+    },
+    {
+      src: editorialImageTwo,
+      alt: "Portrait placeholder for Towel artwork",
+      label: "Signal Two",
+    },
+    {
+      src: editorialImageThree,
+      alt: "Portrait placeholder for Hitchhiker artwork",
+      label: "Signal Three",
+    },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -102,7 +131,7 @@ export default function App() {
               />
               <motion.img
                 src={logo}
-                alt="Bozkurt logo"
+                alt="Towel logo"
                 className="relative z-10 mb-4 w-[120px] drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
@@ -122,7 +151,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                BOZKURT
+                TOWEL
               </motion.div>
               <motion.div
                 className="mt-3 text-[10px] uppercase tracking-[0.45em] text-gray-400"
@@ -130,7 +159,7 @@ export default function App() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                The Pack Is Moving
+                Don't Panic!
               </motion.div>
             </div>
           </motion.div>
@@ -175,7 +204,7 @@ export default function App() {
             <a href="#top" className="flex items-center gap-3">
               <motion.img
                 src={logo}
-                alt="Bozkurt logo"
+                alt="Towel logo"
                 className="h-10 w-10 rounded-full object-cover md:h-11 md:w-11"
                 animate={{ y: [0, -4, 0] }}
                 transition={{
@@ -186,38 +215,82 @@ export default function App() {
               />
               <div className="leading-none">
                 <div className="font-display text-2xl tracking-[0.14em]">
-                  BOZKURT
+                  TOWEL
                 </div>
                 <div className="text-[10px] uppercase tracking-[0.35em] text-gray-400">
-                  Run With The Pack
+                  Don't panic!
                 </div>
               </div>
             </a>
 
             <nav className="hidden items-center gap-6 text-sm text-gray-300 md:flex">
-              <a href="#lore" className="transition hover:text-white">
-                Lore
-              </a>
-              <a href="#roadmap" className="transition hover:text-white">
-                Roadmap
-              </a>
-              <a href="#token" className="transition hover:text-white">
-                Token
-              </a>
-              <a href="#socials" className="transition hover:text-white">
-                Socials
-              </a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="transition hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
             </nav>
 
             <a
               href={pumpFunUrl}
               target="_blank"
               rel="noreferrer"
-              className="whitespace-nowrap rounded-xl border border-white/15 bg-white px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
+              className="hidden whitespace-nowrap rounded-xl border border-white/15 bg-white px-4 py-2 text-sm font-semibold text-black transition hover:scale-105 md:inline-flex"
             >
               Buy on Pump.fun
             </a>
+
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-white/25 hover:bg-white/10 md:hidden"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
+
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                id="mobile-navigation"
+                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-black/70 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl md:hidden"
+              >
+                <nav className="grid gap-2 text-sm text-gray-200">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+
+                  <a
+                    href={pumpFunUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="mt-1 inline-flex items-center justify-center rounded-xl border border-white/15 bg-white px-4 py-3 font-semibold text-black transition hover:scale-[1.01]"
+                  >
+                    Buy on Pump.fun
+                  </a>
+                </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.header>
 
         {/* HERO */}
@@ -311,7 +384,7 @@ export default function App() {
               />
               <motion.img
                 src={logo}
-                alt="Bozkurt logo"
+                alt="Towel logo"
                 className="relative z-10 mb-6 w-[180px] drop-shadow-[0_0_40px_rgba(255,215,0,0.55)] md:mb-8 md:w-[280px]"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={{
@@ -337,7 +410,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
             >
-              BOZKURT
+              Towel
             </motion.h1>
 
             <motion.p
@@ -346,7 +419,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45, duration: 0.8 }}
             >
-              Run With The Pack
+              One Towel to Rule Them All.
             </motion.p>
 
             <motion.p
@@ -355,8 +428,11 @@ export default function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.65, duration: 0.8 }}
             >
-              A premium wolf-coin brand built for believers, raiders, and early
-              movers. The forest is loud. The pack is louder.
+              Inspired by Douglas Adams, one of the most influential authors on
+              Elon’s life and posts. $TOWEL carries the spirit of The
+              Hitchhiker’s Guide to the Galaxy: a Roadster drifting through deep
+              space with a towel onboard and one eternal message to humanity:
+              Don’t Panic if you have the towel.
             </motion.p>
 
             <motion.div
@@ -388,7 +464,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              Fair Launch • Pack Energy • Moon Signal
+              Fair Launch • Mars Landing • Moon Signal
             </motion.div>
 
             <motion.a
@@ -401,7 +477,7 @@ export default function App() {
                 ease: "easeInOut",
               }}
             >
-              Scroll for the lore
+              Scroll for the Narrative
               <ChevronDown size={16} />
             </motion.a>
           </div>
@@ -410,40 +486,103 @@ export default function App() {
         {/* DIVIDER */}
         <div className="section-divider" />
 
-        {/* LORE */}
+        {/* Narrative */}
         <motion.section
           id="lore"
           {...fadeUp}
           className="relative z-10 min-h-screen bg-steel px-6 py-20 md:px-8 md:py-24 flex items-center justify-center"
         >
-          <div className="max-w-4xl text-center">
+          <div className="w-full max-w-6xl">
             <div className="mb-4 text-xs uppercase tracking-[0.35em] text-moon">
-              Bozkurt Manifesto
+              Towel Manifesto
             </div>
 
-            <h2 className="mb-6 text-4xl font-display tracking-[0.1em] sm:text-5xl md:text-6xl">
-              The Pack Is Moving
+            <h2 className="max-w-4xl text-4xl font-display tracking-[0.1em] sm:text-5xl md:text-6xl">
+              One Towel to Rule Them Well
             </h2>
 
-            <p className="text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl">
-              In every cycle, noise fills the forest. Only one signal cuts
-              through it. Bozkurt is not just another memecoin. It is the call
-              of the pack. Fast. Fearless. Relentless.
-            </p>
+            <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.82fr)]">
+              <div className="relative">
+                <div className="absolute -left-5 top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-moon/50 to-transparent md:block" />
+                <div className="space-y-6 text-base leading-relaxed text-gray-300 sm:text-lg">
+                  <p>
+                    Long before meme coins conquered timelines, humanity
+                    launched a cherry-red Tesla Roadster into the void.
+                    Somewhere between Earth and Mars, floating silently in the
+                    endless dark, was the most important object ever sent into
+                    space: A towel. Not gold. Not diamonds. Not a hardware
+                    wallet containing 10 BTC.
+                  </p>
+
+                  <p>
+                    Because any true interstellar traveler knows the ancient
+                    truth written in The Hitchhiker’s Guide to the Galaxy: “A
+                    towel is about the most massively useful thing an
+                    interstellar hitchhiker can have.” While traders panic-sold
+                    every dip and influencers chased the next shiny narrative,
+                    the towel drifted calmly through space, untouched by fear,
+                    untouched by FUD, radiating pure cosmic confidence.
+                  </p>
+
+                  <p>
+                    Then came 2026. One late night, Elon posts a single image. A
+                    perfectly folded white towel floating inside Starship.
+                    Across the fabric, glowing in stitched blue letters: "DON’T
+                    PANIC" No caption. No explanation. Just the towel. Within
+                    minutes, Crypto Twitter detonates. By sunrise, the
+                    Hitchhikers had assembled. And $TOWEL was born.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative min-w-0">
+                <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_65%_30%,rgba(255,215,120,0.16),transparent_40%),radial-gradient(circle_at_25%_80%,rgba(123,167,255,0.14),transparent_42%)] blur-xl" />
+                <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/25 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+                  <div className="mb-3 flex items-center justify-between px-2 text-[10px] uppercase tracking-[0.28em] text-gray-500">
+                    <span>Portrait Archive</span>
+                    <span>Swipe</span>
+                  </div>
+
+                  <div className="portrait-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3">
+                    {editorialImages.map((image, index) => (
+                      <motion.figure
+                        key={image.label}
+                        className="relative aspect-[778/1280] w-[76%] min-w-[76%] snap-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/5 sm:w-[62%] sm:min-w-[62%] lg:w-[78%] lg:min-w-[78%]"
+                        initial={{ opacity: 0, x: 26 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.35 }}
+                        transition={{ duration: 0.75, delay: index * 0.08 }}
+                      >
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="h-full w-full object-cover"
+                        />
+                        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-16">
+                          <div className="text-[10px] uppercase tracking-[0.28em] text-moon">
+                            {image.label}
+                          </div>
+                        </figcaption>
+                      </motion.figure>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {[
                 {
-                  title: "Pack Energy",
-                  text: "Community-first momentum built for believers and raiders.",
+                  title: "The Philosophy",
+                  text: "$TOWEL is more than a meme coin, it’s a reminder to stay calm when the timeline turns chaotic. While everyone else panics during the dip, the Hitchhiker simply grabs the towel and waits.",
                 },
                 {
-                  title: "Mythic Identity",
-                  text: "A wolf signal strong enough to cut through the timeline.",
+                  title: "The Prophecy",
+                  text: "Legend says the first flag planted on Mars won’t belong to a country, it’ll be a towel that says DON’T PANIC. Those still holding $TOWEL when humanity becomes interplanetary will earn the title of Interstellar Hitchhikers.",
                 },
                 {
-                  title: "Moon Discipline",
-                  text: "Dark, premium, unforgettable branding from first glance.",
+                  title: "Future Utility",
+                  text: "Stake your towel, join absurd meme wars, and vote on ridiculous space-themed proposals. Earn legendary Hitchhiker status by surviving volatility with memes, towels, and absolutely no panic.",
                 },
               ].map((item) => (
                 <motion.div
@@ -471,31 +610,31 @@ export default function App() {
           {...fadeUp}
           className="relative z-10 min-h-screen bg-obsidian px-6 py-20 md:px-8 md:py-24 flex flex-col items-center"
         >
-          <div className="mb-4 text-xs uppercase tracking-[0.35em] text-moon">
-            The Hunt
+          <div className="mb-4 text-center text-4xl font-display tracking-[0.1em] sm:text-5xl md:text-6xl">
+            Roadmap
           </div>
 
-          <h2 className="mb-14 text-center text-4xl font-display tracking-[0.1em] sm:text-5xl md:text-6xl">
-            Roadmap
+          <h2 className="mb-14 text-xs uppercase tracking-[0.35em] text-moon">
+            written on the back of a towel somewhere in deep space
           </h2>
 
           <div className="grid w-full max-w-6xl gap-6 md:grid-cols-2">
             {[
               {
-                phase: "Phase I — The Howl",
-                text: "The signal is sent. Bozkurt emerges from the forest and the first wolves answer the call.",
+                phase: "Phase I — Meme Ignition",
+                text: "Spread the towel across X, Telegram, and every corner of the galaxy.",
               },
               {
-                phase: "Phase II — Pack Formation",
-                text: "The pack grows stronger. Raiders spread the signal across the timeline.",
+                phase: "Phase II — The Don’t Panic Dashboard",
+                text: "Live tracking of market fear levels, Elon tweets, and interstellar meme activity.",
               },
               {
-                phase: "Phase III — Hunt Mode",
-                text: "Momentum builds. The forest echoes with the howl of Bozkurt.",
+                phase: "Phase III —  Hitchhiker Expansion",
+                text: "Community raids, towel NFTs, cosmic partnerships, and increasingly questionable space lore.",
               },
               {
-                phase: "Phase IV — Moon Signal",
-                text: "The pack reaches peak velocity. The signal is impossible to ignore.",
+                phase: "Phase IV — Mars",
+                text: "If humanity makes it there, the towel goes too.",
               },
             ].map((item, index) => (
               <motion.div
@@ -508,7 +647,7 @@ export default function App() {
                 className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl transition hover:border-white/20"
               >
                 <div className="mb-3 text-xs uppercase tracking-[0.3em] text-moon">
-                  Hunt Sequence
+                  Mars Sequence
                 </div>
                 <h3 className="mb-4 font-display text-2xl tracking-[0.08em]">
                   {item.phase}
@@ -538,9 +677,7 @@ export default function App() {
               </h2>
 
               <p className="max-w-2xl text-gray-300 leading-relaxed">
-                Bozkurt launches with a clean, direct, community-first setup.
-                Replace the placeholders below with your live token details when
-                ready.
+                Towel launches with a clean, direct, community-first setup.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -567,7 +704,7 @@ export default function App() {
                     Symbol
                   </div>
                   <div className="mt-2 text-lg font-semibold text-white">
-                    BOZKURT
+                    TOWEL
                   </div>
                 </div>
 
@@ -640,11 +777,11 @@ export default function App() {
               </div>
 
               <h3 className="mb-4 text-3xl font-display tracking-[0.08em]">
-                Join The Hunt
+                Join The Mission
               </h3>
 
               <p className="text-gray-300 leading-relaxed">
-                Take the first step in being a member of the park today.
+                Take the first step in holding your own towel today.
               </p>
 
               <div className="mt-8 flex flex-col gap-4">
@@ -702,7 +839,7 @@ export default function App() {
         >
           <div className="mx-auto max-w-5xl text-center">
             <div className="mb-4 text-xs uppercase tracking-[0.35em] text-moon">
-              Where The Pack Gathers
+              Where The Towel lovers Gathers
             </div>
 
             <h2 className="mb-6 text-4xl font-display tracking-[0.1em] sm:text-5xl md:text-6xl">
@@ -710,8 +847,8 @@ export default function App() {
             </h2>
 
             <p className="mx-auto max-w-2xl text-gray-300 leading-relaxed">
-              Every wolf needs a signal. Use these channels to coordinate, push
-              momentum, and grow the pack.
+              Every $TOWEL is gold standard. Use these channels to coordinate,
+              push momentum, and grow the pack.
             </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -757,7 +894,7 @@ export default function App() {
                   Pump.fun
                 </div>
                 <p className="mt-2 text-sm text-gray-300">
-                  The launch point for Bozkurt momentum.
+                  The launch point for Towel momentum.
                 </p>
               </motion.a>
             </div>
@@ -770,21 +907,21 @@ export default function App() {
             <div className="flex items-center gap-3">
               <img
                 src={logo}
-                alt="Bozkurt logo"
+                alt="TOWEL logo"
                 className="h-10 w-10 rounded-full object-cover"
               />
               <div>
                 <div className="font-display text-2xl tracking-[0.12em]">
-                  BOZKURT
+                  TOWEL
                 </div>
                 <div className="text-xs uppercase tracking-[0.28em] text-gray-500">
-                  The Pack Is Moving
+                  Don't Panic!
                 </div>
               </div>
             </div>
 
             <div className="text-sm text-gray-500">
-              © 2026 Bozkurt. All Rights Reserved.
+              © 2026 Towel. All Rights Reserved.
             </div>
           </div>
         </footer>
